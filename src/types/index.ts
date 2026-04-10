@@ -49,6 +49,8 @@ export interface Personality {
   systemNote: string
   description: string
   template: PersonalityTemplate
+  /** 定义性维度（2-3个），匹配时权重翻倍 */
+  keyDimensions: string[]
   dimensionComments: Record<string, string>
 }
 

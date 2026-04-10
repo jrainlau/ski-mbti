@@ -8,11 +8,10 @@ import { personalities } from '@/data/personalities'
 const allQuestions = [...questions, ...hiddenQuestions]
 
 /**
- * 根据用户答案计算各维度原始得分
+ * 根据用户答案计算各维度原始得分（支持负分）
  */
 export function calculateRawScores(answers: UserAnswer[]): Record<string, number> {
   const scores: Record<string, number> = {}
-  // 初始化所有维度为 0
   for (const dim of dimensions) {
     scores[dim.id] = 0
   }
@@ -35,59 +34,85 @@ export function calculateRawScores(answers: UserAnswer[]): Record<string, number
 }
 
 /**
- * 计算每个维度的最大可能得分
- * 传入用户实际回答的 answers，只统计用户作答的题目
+ * 计算每个维度的最大和最小可能得分
+ * 只统计用户实际作答的题目
  */
-export function calculateMaxScores(answers: UserAnswer[]): Record<string, number> {
+export function calculateScoreRange(answers: UserAnswer[]): {
+  maxScores: Record<string, number>
+  minScores: Record<string, number>
+} {
   const maxScores: Record<string, number> = {}
+  const minScores: Record<string, number> = {}
   for (const dim of dimensions) {
     maxScores[dim.id] = 0
+    minScores[dim.id] = 0
   }
 
-  // 收集用户实际回答了的题目 ID
   const answeredIds = new Set(answers.map(a => a.questionId))
 
   for (const question of allQuestions) {
-    // 只计算用户实际回答了的题目
     if (!answeredIds.has(question.id)) continue
-    // 对于每道题的每个维度，取选项中最高分
-    const dimMaxInQuestion: Record<string, number> = {}
+
+    // 对于每道题的每个维度，取选项中最高分和最低分
+    const dimMaxInQ: Record<string, number> = {}
+    const dimMinInQ: Record<string, number> = {}
 
     for (const option of question.options) {
       for (const weight of option.weights) {
-        if (!dimMaxInQuestion[weight.dimensionId] || weight.score > dimMaxInQuestion[weight.dimensionId]) {
-          dimMaxInQuestion[weight.dimensionId] = weight.score
+        const dim = weight.dimensionId
+        if (dimMaxInQ[dim] === undefined || weight.score > dimMaxInQ[dim]) {
+          dimMaxInQ[dim] = weight.score
+        }
+        if (dimMinInQ[dim] === undefined || weight.score < dimMinInQ[dim]) {
+          dimMinInQ[dim] = weight.score
         }
       }
     }
 
-    for (const [dimId, max] of Object.entries(dimMaxInQuestion)) {
+    for (const [dimId, max] of Object.entries(dimMaxInQ)) {
       if (maxScores[dimId] !== undefined) {
         maxScores[dimId] += max
       }
     }
+    for (const [dimId, min] of Object.entries(dimMinInQ)) {
+      if (minScores[dimId] !== undefined) {
+        // 只累积负分贡献（正分的最小贡献为 0，即不选该维度）
+        if (min < 0) {
+          minScores[dimId] += min
+        }
+      }
+    }
   }
 
-  return maxScores
+  return { maxScores, minScores }
 }
 
 /**
- * 归一化到 0-10 分
+ * 归一化到 0-10 分（支持负分原始分）
+ * raw 可以是负数，min 可以是负数，max 是正数
  */
-export function normalizeScore(raw: number, max: number): number {
-  if (max === 0) return 5
-  const normalized = (raw / max) * 10
+export function normalizeScore(raw: number, min: number, max: number): number {
+  const range = max - min
+  if (range === 0) return 5
+  const normalized = ((raw - min) / range) * 10
   return Math.round(Math.min(10, Math.max(0, normalized)) * 10) / 10
 }
 
 /**
- * 计算与人格模板的归一化欧氏距离（越小越匹配）
+ * 加权欧氏距离（keyDimensions 权重翻倍）
  */
-function euclideanDistance(userVector: number[], templateVector: number[]): number {
+function weightedEuclideanDistance(
+  userVector: number[],
+  templateVector: number[],
+  dimIds: string[],
+  keyDimensions: string[]
+): number {
+  const keySet = new Set(keyDimensions)
   let sumSquares = 0
   for (let i = 0; i < userVector.length; i++) {
     const diff = userVector[i] - templateVector[i]
-    sumSquares += diff * diff
+    const weight = keySet.has(dimIds[i]) ? 2.0 : 1.0
+    sumSquares += weight * diff * diff
   }
   return Math.sqrt(sumSquares)
 }
@@ -97,30 +122,45 @@ function euclideanDistance(userVector: number[], templateVector: number[]): numb
  */
 export function matchPersonality(answers: UserAnswer[]): MatchResult {
   const rawScores = calculateRawScores(answers)
-  const maxScores = calculateMaxScores(answers)
+  const { maxScores, minScores } = calculateScoreRange(answers)
 
-  // 归一化得分
+  // 归一化得分（0-10 区间）
   const normalizedScores: Record<string, number> = {}
   for (const dim of dimensions) {
-    normalizedScores[dim.id] = normalizeScore(rawScores[dim.id], maxScores[dim.id])
+    normalizedScores[dim.id] = normalizeScore(
+      rawScores[dim.id],
+      minScores[dim.id],
+      maxScores[dim.id]
+    )
   }
 
   // 构建用户向量
   const dimIds = dimensions.map(d => d.id)
   const userVector = dimIds.map(id => normalizedScores[id])
 
-  // 计算与每个人格的匹配度（用归一化欧氏距离，越小越匹配）
+  // 计算与每个人格的加权欧氏距离
   let bestMatch: Personality = personalities[0]
   let bestDistance = Infinity
 
-  const allDistances: { personality: Personality; distance: number }[] = []
-
-  const maxPossibleDistance = Math.sqrt(dimensions.length * 100) // 最大可能距离（每个维度差10）
+  // 计算理论最大距离（用于归一化百分比）
+  // 考虑加权，最坏情况下关键维度差10、权重2
+  const maxPossibleDistance = Math.sqrt(
+    dimensions.length * 100 + dimensions.length * 100 // 保守估计
+  )
 
   for (const personality of personalities) {
-    const templateVector = dimIds.map(id => personality.template[id] ?? 5)
-    const distance = euclideanDistance(userVector, templateVector)
-    allDistances.push({ personality, distance })
+    const templateVector = dimIds.map(id => {
+      const val = personality.template[id] ?? 5
+      // 模板也归一化到 0-10 区间（模板本身就是 0-10 的设计值）
+      return val
+    })
+
+    const distance = weightedEuclideanDistance(
+      userVector,
+      templateVector,
+      dimIds,
+      personality.keyDimensions
+    )
 
     if (distance < bestDistance) {
       bestDistance = distance
@@ -128,9 +168,9 @@ export function matchPersonality(answers: UserAnswer[]): MatchResult {
     }
   }
 
-  // 计算匹配度百分比：距离越小匹配度越高，映射到 60%-100% 区间
-  const similarity = 1 - (bestDistance / maxPossibleDistance)
-  const matchPercent = Math.round((50 + similarity * 50) * 10) / 10
+  // 计算匹配度百分比：距离越小匹配度越高，映射到 60%-98% 区间
+  const similarity = Math.max(0, 1 - (bestDistance / maxPossibleDistance))
+  const matchPercent = Math.round((60 + similarity * 38) * 10) / 10
 
   // 构建维度得分列表
   const dimensionScores: DimensionScore[] = dimensions.map(dim => {

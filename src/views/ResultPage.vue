@@ -22,9 +22,10 @@ const result = computed<MatchResult | null>(() => {
   if (devCode) {
     const personality = personalities.find(p => p.code === devCode)
     if (!personality) return null
-    // 生成模拟的维度得分（使用人格模板值作为归一化分）
+    // 生成模拟的维度得分（使用人格模板值作为归一化分，clamp 负值到 0）
     const dimensionScores = dimensions.map(dim => {
-      const normalized = personality.template[dim.id] ?? 5
+      const raw = personality.template[dim.id] ?? 5
+      const normalized = Math.max(0, Math.min(10, raw))
       return {
         dimensionId: dim.id,
         rawScore: normalized,
