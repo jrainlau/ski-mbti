@@ -5,7 +5,7 @@
   <div id="ski-app">
     <a
       class="github-corner"
-      href="https://cnb.cool/jrainlau/ski-mbti"
+      href="https://xhslink.com/m/3XGW7DhSgC4"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="View source on GitHub"
