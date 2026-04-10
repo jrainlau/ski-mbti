@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" fill="none">
+  <!-- COACH 野生教练 - 红橙色系，指导姿态 -->
+  <!-- 阴影 -->
+  <ellipse cx="100" cy="242" rx="48" ry="7" fill="#E0D5CC" opacity="0.5"/>
+  
+  <!-- 雪板 -->
+  <rect x="58" y="233" width="84" height="5" rx="2.5" fill="#2D2D2D"/>
+  
+  <!-- 左腿 -->
+  <polygon points="82,180 72,228 86,232 92,182" fill="#264653"/>
+  <!-- 右腿 -->
+  <polygon points="108,178 115,226 130,224 118,176" fill="#264653"/>
+  
+  <!-- 身体 - 红橙教练风雪服 -->
+  <polygon points="74,95 62,138 72,184 120,182 130,136 116,92" fill="#E76F51"/>
+  <polygon points="74,95 62,138 96,136" fill="#D96040" opacity="0.7"/>
+  <polygon points="116,92 130,136 96,136" fill="#CC5535" opacity="0.7"/>
+  <polygon points="62,138 72,184 96,166" fill="#D96040" opacity="0.5"/>
+  <polygon points="130,136 120,182 96,166" fill="#CC5535" opacity="0.5"/>
+  
+  <!-- "教练"臂章 -->
+  <rect x="62" y="108" width="16" height="10" rx="2" fill="#E9C46A"/>
+  <text x="64" y="116" font-family="sans-serif" font-size="5" font-weight="bold" fill="#264653">PRO</text>
+  
+  <!-- 左臂 - 指导手势 -->
+  <polygon points="74,100 45,118 50,130 80,114" fill="#E76F51"/>
+  <circle cx="47" cy="124" r="5" fill="#FFD6A5"/>
+  <!-- 指导的手指 -->
+  <line x1="43" y1="120" x2="28" y2="108" stroke="#FFD6A5" stroke-width="2.5" stroke-linecap="round"/>
+  
+  <!-- 右臂 - 竖大拇指 -->
+  <polygon points="116,97 150,108 148,120 112,112" fill="#E76F51"/>
+  <circle cx="149" cy="114" r="5" fill="#FFD6A5"/>
+  <!-- 大拇指 -->
+  <line x1="152" y1="110" x2="158" y2="98" stroke="#FFD6A5" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="158" cy="96" r="3" fill="#FFD6A5"/>
+  
+  <!-- 头部 -->
+  <ellipse cx="95" cy="60" rx="25" ry="27" fill="#FFD6A5"/>
+  <!-- 头发 -->
+  <path d="M71 52 Q78 28 95 26 Q112 28 119 52" fill="#6B3A2A"/>
+  
+  <!-- 教练帽 -->
+  <path d="M67 50 Q72 28 95 24 Q118 28 123 50" fill="#E76F51"/>
+  <rect x="66" y="48" width="58" height="6" rx="3" fill="#CC5535"/>
+  <!-- 帽檐 -->
+  <rect x="92" y="48" width="38" height="5" rx="2" fill="#CC5535"/>
+  
+  <!-- 太阳镜 -->
+  <rect x="78" y="55" width="15" height="11" rx="3" fill="#264653"/>
+  <rect x="97" y="55" width="15" height="11" rx="3" fill="#264653"/>
+  <line x1="93" y1="60" x2="97" y2="60" stroke="#264653" stroke-width="2"/>
+  <!-- 镜片反光 -->
+  <rect x="80" y="57" width="4" height="3" rx="1" fill="white" opacity="0.2"/>
+  <rect x="99" y="57" width="4" height="3" rx="1" fill="white" opacity="0.2"/>
+  
+  <!-- 嘴 - 鼓励的笑容 -->
+  <path d="M85 76 Q95 84 105 76" stroke="#C1694F" stroke-width="2" fill="none" stroke-linecap="round"/>
+  
+  <!-- 哨子 -->
+  <circle cx="108" cy="90" r="4" fill="#E9C46A"/>
+  <line x1="108" y1="86" x2="105" y2="80" stroke="#888" stroke-width="1.5"/>
+  
+  <!-- 对话气泡 -->
+  <g transform="translate(128,25)">
+    <rect x="0" y="0" width="52" height="26" rx="13" fill="#E76F51" opacity="0.2"/>
+    <text x="6" y="17" font-family="sans-serif" font-size="8" fill="#E76F51" opacity="0.6">弯曲膝盖!</text>
+  </g>
+</svg>

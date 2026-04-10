@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" fill="none">
+  <!-- POWD 追粉人 - 白/淡蓝系，粉雪飞溅 -->
+  <!-- 粉雪飞溅 -->
+  <ellipse cx="100" cy="235" rx="65" ry="15" fill="#E8F4FD" opacity="0.6"/>
+  <circle cx="45" cy="220" r="5" fill="white" opacity="0.7"/>
+  <circle cx="60" cy="212" r="4" fill="white" opacity="0.6"/>
+  <circle cx="38" cy="208" r="3" fill="white" opacity="0.5"/>
+  <circle cx="155" cy="218" r="5" fill="white" opacity="0.7"/>
+  <circle cx="148" cy="205" r="4" fill="white" opacity="0.6"/>
+  <circle cx="165" cy="210" r="3" fill="white" opacity="0.5"/>
+  <circle cx="52" cy="195" r="3" fill="white" opacity="0.4"/>
+  <circle cx="160" cy="195" r="2.5" fill="white" opacity="0.4"/>
+  
+  <!-- 粉雪板 -->
+  <rect x="55" y="232" width="90" height="6" rx="3" fill="#5390D9" transform="rotate(-3 100 235)"/>
+  <rect x="60" y="233" width="80" height="4" rx="2" fill="#4EA8DE" transform="rotate(-3 100 235)"/>
+  
+  <!-- 左腿 -->
+  <polygon points="82,178 72,228 86,230 92,180" fill="#5E60CE"/>
+  <!-- 右腿 -->
+  <polygon points="108,176 115,226 130,224 118,174" fill="#5E60CE"/>
+  
+  <!-- 身体 - 淡蓝/紫色雪服 -->
+  <polygon points="74,95 62,138 72,183 120,180 130,135 116,92" fill="#7678ED"/>
+  <polygon points="74,95 62,138 96,136" fill="#6A6CD9" opacity="0.7"/>
+  <polygon points="116,92 130,135 96,136" fill="#5E60CE" opacity="0.7"/>
+  <polygon points="62,138 72,183 96,165" fill="#6A6CD9" opacity="0.5"/>
+  <polygon points="130,135 120,180 96,165" fill="#5E60CE" opacity="0.5"/>
+  
+  <!-- 左臂 -->
+  <polygon points="74,100 48,138 54,148 80,112" fill="#7678ED"/>
+  <circle cx="51" cy="143" r="5" fill="#FFD6A5"/>
+  
+  <!-- 右臂 - 向后伸展感受粉雪 -->
+  <polygon points="116,97 148,118 144,130 112,112" fill="#7678ED"/>
+  <circle cx="146" cy="124" r="5" fill="#FFD6A5"/>
+  <!-- 手指张开感受雪 -->
+  <line x1="150" y1="120" x2="158" y2="115" stroke="#FFD6A5" stroke-width="2" stroke-linecap="round"/>
+  <line x1="150" y1="124" x2="160" y2="122" stroke="#FFD6A5" stroke-width="2" stroke-linecap="round"/>
+  <line x1="150" y1="128" x2="158" y2="130" stroke="#FFD6A5" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- 头部 -->
+  <ellipse cx="95" cy="60" rx="25" ry="27" fill="#FFD6A5"/>
+  <!-- 头发 -->
+  <path d="M71 52 Q80 28 95 26 Q110 28 119 52" fill="#5E4B3C"/>
+  <path d="M73 52 Q82 34 95 32 Q108 34 117 52" fill="#4A3B2E"/>
+  
+  <!-- 毛线帽 -->
+  <path d="M68 50 Q70 28 95 24 Q120 28 122 50" fill="#7678ED"/>
+  <rect x="68" y="48" width="54" height="8" rx="4" fill="#5E60CE"/>
+  <!-- 帽顶毛球 -->
+  <circle cx="95" cy="22" r="7" fill="#7678ED"/>
+  <circle cx="95" cy="22" r="5" fill="#8B8DEF"/>
+  
+  <!-- 眼睛 - 陶醉闭眼 -->
+  <path d="M82 60 Q87 56 92 60" stroke="#1A1A2E" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M98 60 Q103 56 108 60" stroke="#1A1A2E" stroke-width="2" fill="none" stroke-linecap="round"/>
+  
+  <!-- 嘴 - 满足微笑 -->
+  <path d="M88 72 Q95 78 102 72" stroke="#C1694F" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  
+  <!-- 雪花装饰 -->
+  <g opacity="0.5" transform="translate(30,60)">
+    <line x1="0" y1="-6" x2="0" y2="6" stroke="#B8D4E8" stroke-width="1.5"/>
+    <line x1="-5" y1="-3" x2="5" y2="3" stroke="#B8D4E8" stroke-width="1.5"/>
+    <line x1="-5" y1="3" x2="5" y2="-3" stroke="#B8D4E8" stroke-width="1.5"/>
+  </g>
+  <g opacity="0.4" transform="translate(170,80)">
+    <line x1="0" y1="-5" x2="0" y2="5" stroke="#B8D4E8" stroke-width="1.2"/>
+    <line x1="-4" y1="-2.5" x2="4" y2="2.5" stroke="#B8D4E8" stroke-width="1.2"/>
+    <line x1="-4" y1="2.5" x2="4" y2="-2.5" stroke="#B8D4E8" stroke-width="1.2"/>
+  </g>
+  <g opacity="0.3" transform="translate(165,150) scale(0.7)">
+    <line x1="0" y1="-5" x2="0" y2="5" stroke="#B8D4E8" stroke-width="1.2"/>
+    <line x1="-4" y1="-2.5" x2="4" y2="2.5" stroke="#B8D4E8" stroke-width="1.2"/>
+    <line x1="-4" y1="2.5" x2="4" y2="-2.5" stroke="#B8D4E8" stroke-width="1.2"/>
+  </g>
+</svg>

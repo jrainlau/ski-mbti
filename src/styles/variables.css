@@ -1,0 +1,64 @@
+:root {
+  /* Primary colors — Ice Blue */
+  --color-primary: #4A90D9;
+  --color-primary-light: #6BB0F0;
+  --color-primary-dark: #3670B5;
+  --color-primary-bg: #E3F0FD;
+  --color-primary-bg-hover: #BDD8F7;
+
+  /* Background */
+  --color-bg: #F5F8FC;
+  --color-bg-white: #FFFFFF;
+  --color-bg-card: #FFFFFF;
+  --color-bg-option: #f3f6fa;
+  --color-bg-section: #EBF2FA;
+
+  /* Text */
+  --color-text: #1a1a1a;
+  --color-text-secondary: #4a4a4a;
+  --color-text-muted: #999999;
+  --color-text-white: #FFFFFF;
+
+  /* Border */
+  --color-border: #e5e7eb;
+  --color-border-active: #4A90D9;
+
+  /* Functional */
+  --color-disabled: #bdbdbd;
+  --color-shadow: rgba(0, 0, 0, 0.06);
+  --color-shadow-md: rgba(0, 0, 0, 0.1);
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+
+  /* Border radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  /* Typography */
+  --font-family: 'PingFang SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, 'Noto Sans SC', sans-serif;
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-base: 15px;
+  --font-size-md: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 22px;
+  --font-size-2xl: 28px;
+  --font-size-3xl: 36px;
+
+  /* Container */
+  --container-max-width: 720px;
+
+  /* Z-index */
+  --z-sticky: 100;
+  --z-toast: 200;
+}

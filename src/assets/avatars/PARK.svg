@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" fill="none">
+  <!-- PARK 公园崽 - 绿色/黄色系，松垮穿搭，空中姿态 -->
+  <!-- 跳台轮廓 -->
+  <path d="M20 255 L80 230 Q100 222 120 230 L180 255Z" fill="#E8EBE0" opacity="0.3"/>
+  
+  <!-- 滑雪板 - 抓板姿态 -->
+  <rect x="60" y="195" width="75" height="5" rx="2.5" fill="#FF6B35" transform="rotate(15 97 197)"/>
+  
+  <!-- 右腿 - 弯曲收起 -->
+  <polygon points="110,162 125,192 138,188 120,158" fill="#2D2D2D"/>
+  <!-- 左腿 -->
+  <polygon points="82,165 70,196 84,200 92,168" fill="#2D2D2D"/>
+  
+  <!-- 身体 - 松垮大号连帽衫 -->
+  <polygon points="70,85 55,130 65,172 125,170 135,128 118,82" fill="#06D6A0"/>
+  <polygon points="70,85 55,130 94,128" fill="#05BF8E" opacity="0.7"/>
+  <polygon points="118,82 135,128 94,128" fill="#04A67A" opacity="0.7"/>
+  <polygon points="55,130 65,172 94,155" fill="#05BF8E" opacity="0.5"/>
+  <polygon points="135,128 125,170 94,155" fill="#04A67A" opacity="0.5"/>
+  
+  <!-- 帽衫口袋 -->
+  <rect x="76" y="140" width="36" height="18" rx="3" fill="#04A67A" opacity="0.5"/>
+  
+  <!-- 左臂 - 向下抓板 -->
+  <polygon points="70,90 42,130 48,142 76,105" fill="#06D6A0"/>
+  <circle cx="45" cy="136" r="5" fill="#FFD6A5"/>
+  
+  <!-- 右臂 - 向上伸展 -->
+  <polygon points="118,87 155,65 158,78 122,100" fill="#06D6A0"/>
+  <circle cx="156" cy="71" r="5" fill="#FFD6A5"/>
+  
+  <!-- 帽子（反戴棒球帽） -->
+  <ellipse cx="94" cy="52" rx="27" ry="24" fill="#FFD6A5"/>
+  <path d="M68 48 Q75 25 94 24 Q113 25 120 48" fill="#2D2D2D"/>
+  <!-- 帽檐（朝后） -->
+  <rect x="66" y="46" width="18" height="6" rx="2" fill="#2D2D2D"/>
+  
+  <!-- 眼睛 - 兴奋 -->
+  <circle cx="85" cy="54" r="4" fill="#1A1A2E"/>
+  <circle cx="103" cy="54" r="4" fill="#1A1A2E"/>
+  <circle cx="84" cy="53" r="1.5" fill="white"/>
+  <circle cx="102" cy="53" r="1.5" fill="white"/>
+  
+  <!-- 嘴 - 大笑 -->
+  <path d="M84 66 Q94 76 104 66" stroke="#C1694F" stroke-width="2" fill="#C1694F" opacity="0.3"/>
+  
+  <!-- 飞行线条 -->
+  <line x1="160" y1="60" x2="180" y2="50" stroke="#06D6A0" stroke-width="2" opacity="0.4"/>
+  <line x1="155" y1="75" x2="178" y2="70" stroke="#06D6A0" stroke-width="1.5" opacity="0.3"/>
+  <line x1="158" y1="90" x2="175" y2="88" stroke="#06D6A0" stroke-width="1.5" opacity="0.2"/>
+  
+  <!-- 星星装饰 -->
+  <polygon points="170,42 172,48 178,48 173,52 175,58 170,54 165,58 167,52 162,48 168,48" fill="#FFD166" opacity="0.6"/>
+</svg>

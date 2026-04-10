@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" fill="none">
+  <!-- SEND 送命家 - 红色系，冲刺姿态，头盔+护目镜 -->
+  <!-- 背景光晕 -->
+  <ellipse cx="100" cy="240" rx="50" ry="8" fill="#E8D5D5" opacity="0.5"/>
+  
+  <!-- 左滑雪板 -->
+  <path d="M60 235 L45 250 Q42 253 45 254 L85 254 Q88 253 86 250 L75 235Z" fill="#2D2D2D"/>
+  <!-- 右滑雪板 -->
+  <path d="M110 235 L95 250 Q92 253 95 254 L135 254 Q138 253 136 250 L125 235Z" fill="#2D2D2D"/>
+  
+  <!-- 左腿 -->
+  <polygon points="78,180 68,230 82,232 88,182" fill="#1A1A2E"/>
+  <!-- 右腿 - 弯曲前倾 -->
+  <polygon points="108,178 115,228 130,226 118,176" fill="#1A1A2E"/>
+  
+  <!-- 身体/雪服 - 红色低多边形 -->
+  <polygon points="72,100 62,140 70,185 120,185 128,140 118,100" fill="#E63946"/>
+  <polygon points="72,100 62,140 95,145" fill="#D62839" opacity="0.7"/>
+  <polygon points="118,100 128,140 95,145" fill="#C1121F" opacity="0.7"/>
+  <polygon points="62,140 70,185 95,170" fill="#D62839" opacity="0.5"/>
+  <polygon points="128,140 120,185 95,170" fill="#C1121F" opacity="0.5"/>
+  
+  <!-- 左臂 - 向后伸展（速度感） -->
+  <polygon points="72,105 40,135 45,145 78,118" fill="#E63946"/>
+  <!-- 左手/雪杖 -->
+  <circle cx="42" cy="140" r="5" fill="#FFD6A5"/>
+  <line x1="38" y1="142" x2="25" y2="220" stroke="#666" stroke-width="2.5"/>
+  <circle cx="25" cy="220" r="6" fill="none" stroke="#666" stroke-width="2"/>
+  
+  <!-- 右臂 - 向前伸展 -->
+  <polygon points="118,105 150,128 146,140 115,120" fill="#E63946"/>
+  <!-- 右手/雪杖 -->
+  <circle cx="148" cy="134" r="5" fill="#FFD6A5"/>
+  <line x1="152" y1="136" x2="165" y2="220" stroke="#666" stroke-width="2.5"/>
+  <circle cx="165" cy="220" r="6" fill="none" stroke="#666" stroke-width="2"/>
+  
+  <!-- 头盔 -->
+  <ellipse cx="95" cy="60" rx="30" ry="28" fill="#E63946"/>
+  <ellipse cx="95" cy="56" rx="28" ry="22" fill="#C1121F"/>
+  <!-- 头盔顶部高光 -->
+  <path d="M75 48 Q95 35 115 48" fill="#FF6B6B" opacity="0.4"/>
+  
+  <!-- 护目镜 -->
+  <rect x="72" y="55" width="46" height="18" rx="9" fill="#1A1A2E"/>
+  <rect x="75" y="58" width="18" height="12" rx="6" fill="#4CC9F0" opacity="0.7"/>
+  <rect x="97" y="58" width="18" height="12" rx="6" fill="#4CC9F0" opacity="0.7"/>
+  <!-- 护目镜反光 -->
+  <rect x="78" y="60" width="6" height="4" rx="2" fill="white" opacity="0.5"/>
+  <rect x="100" y="60" width="6" height="4" rx="2" fill="white" opacity="0.5"/>
+  
+  <!-- 面部 - 嘴 -->
+  <path d="M86 80 Q95 88 104 80" stroke="#1A1A2E" stroke-width="2" fill="none" stroke-linecap="round"/>
+  
+  <!-- 速度线 -->
+  <line x1="25" y1="110" x2="5" y2="115" stroke="#E63946" stroke-width="1.5" opacity="0.4"/>
+  <line x1="28" y1="125" x2="8" y2="128" stroke="#E63946" stroke-width="1.5" opacity="0.3"/>
+  <line x1="30" y1="140" x2="12" y2="142" stroke="#E63946" stroke-width="1.5" opacity="0.2"/>
+</svg>

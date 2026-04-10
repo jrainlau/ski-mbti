@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" fill="none">
+  <!-- NOMAD 追雪游牧人 - 大地色系，背包+旅行感 -->
+  <!-- 阴影 -->
+  <ellipse cx="100" cy="242" rx="48" ry="7" fill="#D8D0C5" opacity="0.5"/>
+  
+  <!-- 雪板 -->
+  <rect x="58" y="233" width="84" height="5" rx="2.5" fill="#5C4033"/>
+  <rect x="63" y="234" width="74" height="3" rx="1.5" fill="#8B6F4E"/>
+  
+  <!-- 左腿 -->
+  <polygon points="82,182 72,228 86,232 92,184" fill="#5C4033"/>
+  <!-- 右腿 -->
+  <polygon points="108,180 115,226 130,224 118,178" fill="#5C4033"/>
+  
+  <!-- 身体 - 大地色户外夹克 -->
+  <polygon points="74,98 62,140 72,186 120,184 130,138 116,95" fill="#B07D56"/>
+  <polygon points="74,98 62,140 96,138" fill="#A37048" opacity="0.7"/>
+  <polygon points="116,95 130,138 96,138" fill="#96633C" opacity="0.7"/>
+  <polygon points="62,140 72,186 96,168" fill="#A37048" opacity="0.5"/>
+  <polygon points="130,138 120,184 96,168" fill="#96633C" opacity="0.5"/>
+  
+  <!-- 背包 -->
+  <rect x="56" y="100" width="18" height="45" rx="5" fill="#5C4033"/>
+  <rect x="58" y="105" width="14" height="15" rx="3" fill="#4A3328" opacity="0.5"/>
+  <!-- 背包带 -->
+  <line x1="68" y1="100" x2="78" y2="98" stroke="#5C4033" stroke-width="3"/>
+  <line x1="68" y1="115" x2="74" y2="130" stroke="#5C4033" stroke-width="3"/>
+  
+  <!-- 左臂 -->
+  <polygon points="74,103 50,140 56,150 80,116" fill="#B07D56"/>
+  <circle cx="53" cy="145" r="5" fill="#FFD6A5"/>
+  
+  <!-- 右臂 - 指向远方 -->
+  <polygon points="116,100 155,88 156,100 118,112" fill="#B07D56"/>
+  <circle cx="155" cy="94" r="4" fill="#FFD6A5"/>
+  <!-- 指向远方 -->
+  <line x1="158" y1="90" x2="172" y2="82" stroke="#FFD6A5" stroke-width="2.5" stroke-linecap="round"/>
+  
+  <!-- 头部 -->
+  <ellipse cx="95" cy="62" rx="24" ry="26" fill="#FFD6A5"/>
+  <!-- 头发 -->
+  <path d="M72 54 Q78 32 95 30 Q112 32 118 54" fill="#6B3A2A"/>
+  
+  <!-- 探险帽 -->
+  <path d="M65 52 Q72 28 95 24 Q118 28 125 52" fill="#B07D56"/>
+  <rect x="60" y="50" width="70" height="6" rx="3" fill="#96633C"/>
+  <!-- 帽绳 -->
+  <line x1="68" y1="56" x2="62" y2="72" stroke="#96633C" stroke-width="1.5"/>
+  <line x1="122" y1="56" x2="128" y2="72" stroke="#96633C" stroke-width="1.5"/>
+  
+  <!-- 眼睛 - 远望 -->
+  <ellipse cx="86" cy="62" rx="3.5" ry="3.5" fill="#1A1A2E"/>
+  <ellipse cx="104" cy="62" rx="3.5" ry="3.5" fill="#1A1A2E"/>
+  <circle cx="87" cy="61" r="1.2" fill="white"/>
+  <circle cx="105" cy="61" r="1.2" fill="white"/>
+  
+  <!-- 嘴 - 期待微笑 -->
+  <path d="M88 75 Q95 80 102 75" stroke="#C1694F" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  
+  <!-- 地图/旅行元素 -->
+  <g transform="translate(148,55)" opacity="0.4">
+    <rect x="0" y="0" width="22" height="16" rx="2" fill="#E9C46A"/>
+    <line x1="4" y1="4" x2="18" y2="4" stroke="#B07D56" stroke-width="1" opacity="0.5"/>
+    <line x1="4" y1="8" x2="15" y2="8" stroke="#B07D56" stroke-width="1" opacity="0.5"/>
+    <circle cx="14" cy="11" r="2" fill="#E76F51" opacity="0.5"/>
+  </g>
+  
+  <!-- 飞机路线 -->
+  <path d="M15 20 Q50 5 80 15" stroke="#B07D56" stroke-width="1" fill="none" opacity="0.2" stroke-dasharray="3 2"/>
+  <polygon points="80,14 78,10 82,13" fill="#B07D56" opacity="0.3"/>
+</svg>

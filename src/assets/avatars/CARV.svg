@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" fill="none">
+  <!-- CARV 刻弧怪 - 蓝色系，优雅倾斜刻弧姿态 -->
+  <!-- 弧线痕迹 -->
+  <path d="M30 250 Q100 230 170 250" stroke="#4361EE" stroke-width="2" fill="none" opacity="0.3" stroke-dasharray="6 3"/>
+  <path d="M40 255 Q100 238 160 255" stroke="#4361EE" stroke-width="1.5" fill="none" opacity="0.2" stroke-dasharray="6 3"/>
+  
+  <!-- 阴影 -->
+  <ellipse cx="105" cy="242" rx="45" ry="7" fill="#D5D5E8" opacity="0.5"/>
+  
+  <!-- 滑雪板 - 倾斜立刃 -->
+  <rect x="65" y="230" width="80" height="5" rx="2.5" fill="#2D2D2D" transform="rotate(-8 105 232)"/>
+  
+  <!-- 左腿 - 弯曲 -->
+  <polygon points="82,178 72,224 85,228 92,180" fill="#1A1A2E"/>
+  <!-- 右腿 -->
+  <polygon points="112,176 118,222 132,220 122,174" fill="#1A1A2E"/>
+  
+  <!-- 身体 - 蓝色低多边形，向左倾斜 -->
+  <polygon points="78,98 65,138 75,183 122,180 130,135 115,95" fill="#4361EE"/>
+  <polygon points="78,98 65,138 97,140" fill="#3A56D4" opacity="0.7"/>
+  <polygon points="115,95 130,135 97,140" fill="#3249B5" opacity="0.7"/>
+  <polygon points="65,138 75,183 97,165" fill="#3A56D4" opacity="0.5"/>
+  <polygon points="130,135 122,180 97,165" fill="#3249B5" opacity="0.5"/>
+  
+  <!-- 左臂 - 向下伸展 -->
+  <polygon points="78,103 50,145 56,155 82,116" fill="#4361EE"/>
+  <circle cx="53" cy="150" r="5" fill="#FFD6A5"/>
+  <line x1="49" y1="152" x2="35" y2="230" stroke="#888" stroke-width="2.5"/>
+  <circle cx="35" cy="230" r="5" fill="none" stroke="#888" stroke-width="2"/>
+  
+  <!-- 右臂 - 向上平衡 -->
+  <polygon points="115,100 152,115 150,128 112,114" fill="#4361EE"/>
+  <circle cx="151" cy="121" r="5" fill="#FFD6A5"/>
+  <line x1="155" y1="123" x2="168" y2="228" stroke="#888" stroke-width="2.5"/>
+  <circle cx="168" cy="228" r="5" fill="none" stroke="#888" stroke-width="2"/>
+  
+  <!-- 头部 -->
+  <ellipse cx="96" cy="62" rx="25" ry="27" fill="#FFD6A5"/>
+  <!-- 头发 -->
+  <path d="M72 55 Q80 30 96 32 Q112 30 120 55" fill="#4361EE"/>
+  <path d="M74 55 Q85 38 96 36 Q107 38 118 55" fill="#3249B5"/>
+  
+  <!-- 护目镜（推到额头上） -->
+  <rect x="77" y="42" width="38" height="14" rx="7" fill="#1A1A2E"/>
+  <rect x="80" y="44" width="14" height="10" rx="5" fill="#F7B801" opacity="0.6"/>
+  <rect x="98" y="44" width="14" height="10" rx="5" fill="#F7B801" opacity="0.6"/>
+  
+  <!-- 眼睛 - 专注 -->
+  <ellipse cx="87" cy="62" rx="3" ry="3.5" fill="#1A1A2E"/>
+  <ellipse cx="105" cy="62" rx="3" ry="3.5" fill="#1A1A2E"/>
+  <circle cx="86" cy="61" r="1" fill="white"/>
+  <circle cx="104" cy="61" r="1" fill="white"/>
+  
+  <!-- 嘴 - 微笑 -->
+  <path d="M90 74 Q96 78 102 74" stroke="#C1694F" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  
+  <!-- 弧线标注 -->
+  <path d="M40 245 Q90 220 140 245" stroke="#4361EE" stroke-width="3" fill="none" opacity="0.15"/>
+</svg>

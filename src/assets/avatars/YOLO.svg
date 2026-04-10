@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" fill="none">
+  <!-- YOLO 一季退坑人 - 灰色/冷色系，犹豫站姿 -->
+  <!-- 地面/雪地 -->
+  <ellipse cx="100" cy="242" rx="50" ry="8" fill="#E0E0E0" opacity="0.5"/>
+  
+  <!-- 雪板（租借感，贴着标签） -->
+  <rect x="58" y="233" width="84" height="5" rx="2.5" fill="#8D99AE"/>
+  <rect x="118" y="230" width="14" height="8" rx="2" fill="#E9C46A" opacity="0.5"/>
+  <text x="120" y="237" font-family="sans-serif" font-size="5" fill="#666" opacity="0.7">租</text>
+  
+  <!-- 左腿 - 僵硬站立 -->
+  <polygon points="82,182 74,228 88,232 92,184" fill="#8D99AE"/>
+  <!-- 右腿 -->
+  <polygon points="108,180 115,226 130,224 118,178" fill="#8D99AE"/>
+  
+  <!-- 身体 - 普通灰色雪服（租借） -->
+  <polygon points="74,98 62,140 72,186 120,184 130,138 116,95" fill="#8D99AE"/>
+  <polygon points="74,98 62,140 96,138" fill="#7E8FA0" opacity="0.7"/>
+  <polygon points="116,95 130,138 96,138" fill="#6F8092" opacity="0.7"/>
+  <polygon points="62,140 72,186 96,168" fill="#7E8FA0" opacity="0.5"/>
+  <polygon points="130,138 120,184 96,168" fill="#6F8092" opacity="0.5"/>
+  
+  <!-- 左臂 - 搓手 -->
+  <polygon points="74,103 55,135 62,145 80,116" fill="#8D99AE"/>
+  <circle cx="58" cy="140" r="5" fill="#FFD6A5"/>
+  
+  <!-- 右臂 - 抱着自己（冷） -->
+  <polygon points="116,100 102,140 108,148 120,112" fill="#8D99AE"/>
+  <circle cx="105" cy="144" r="5" fill="#FFD6A5"/>
+  
+  <!-- 围巾（缠了很多圈） -->
+  <path d="M72 102 Q95 110 118 102" stroke="#EF476F" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <path d="M75 108 Q95 115 115 108" stroke="#F07D91" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <rect x="108" y="108" width="7" height="25" rx="3" fill="#EF476F"/>
+  
+  <!-- 头部 -->
+  <ellipse cx="95" cy="62" rx="25" ry="27" fill="#FFD6A5"/>
+  <!-- 头发 -->
+  <path d="M71 54 Q78 30 95 28 Q112 30 119 54" fill="#6B3A2A"/>
+  
+  <!-- 毛线帽（拉到很低） -->
+  <path d="M66 58 Q70 28 95 22 Q120 28 124 58" fill="#EF476F"/>
+  <rect x="66" y="56" width="58" height="6" rx="3" fill="#F07D91"/>
+  <circle cx="95" cy="20" r="5" fill="#EF476F"/>
+  
+  <!-- 眼睛 - 无助的大眼 -->
+  <circle cx="85" cy="64" r="4.5" fill="white"/>
+  <circle cx="85" cy="65" r="3" fill="#1A1A2E"/>
+  <circle cx="84" cy="64" r="1" fill="white"/>
+  <circle cx="105" cy="64" r="4.5" fill="white"/>
+  <circle cx="105" cy="65" r="3" fill="#1A1A2E"/>
+  <circle cx="104" cy="64" r="1" fill="white"/>
+  
+  <!-- 眉毛 - 担心 -->
+  <path d="M78 56 Q82 53 90 56" stroke="#6B3A2A" stroke-width="2" fill="none"/>
+  <path d="M100 56 Q108 53 112 56" stroke="#6B3A2A" stroke-width="2" fill="none"/>
+  
+  <!-- 嘴 - 尴尬笑 -->
+  <path d="M88 78 Q95 82 102 78" stroke="#C1694F" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <line x1="103" y1="78" x2="106" y2="76" stroke="#C1694F" stroke-width="1" opacity="0.5"/>
+  
+  <!-- 腮红（冻的） -->
+  <circle cx="78" cy="72" r="5" fill="#EF476F" opacity="0.25"/>
+  <circle cx="112" cy="72" r="5" fill="#EF476F" opacity="0.25"/>
+  
+  <!-- 冷气 -->
+  <path d="M110 82 Q115 78 112 74" stroke="#B0C4DE" stroke-width="1.5" fill="none" opacity="0.3"/>
+  <path d="M114 84 Q118 79 116 75" stroke="#B0C4DE" stroke-width="1" fill="none" opacity="0.2"/>
+  
+  <!-- "下次一定"对话框 -->
+  <g transform="translate(130,35)">
+    <rect x="0" y="0" width="55" height="22" rx="11" fill="#EF476F" opacity="0.15"/>
+    <text x="5" y="15" font-family="sans-serif" font-size="7" fill="#EF476F" opacity="0.5">下次一定...</text>
+  </g>
+</svg>

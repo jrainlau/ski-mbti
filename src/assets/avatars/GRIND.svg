@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" fill="none">
+  <!-- GRIND 卷王 - 深蓝/黑色系，紧凑训练姿态 -->
+  <!-- 阴影 -->
+  <ellipse cx="100" cy="242" rx="48" ry="7" fill="#D0D5DD" opacity="0.5"/>
+  
+  <!-- 雪板 -->
+  <rect x="55" y="232" width="90" height="5" rx="2.5" fill="#1A1A2E"/>
+  <rect x="60" y="233" width="80" height="3" rx="1.5" fill="#E63946" opacity="0.6"/>
+  
+  <!-- 左腿 - 深蹲姿态 -->
+  <polygon points="80,178 68,228 82,232 90,180" fill="#1A1A2E"/>
+  <!-- 右腿 -->
+  <polygon points="108,176 115,226 130,224 118,174" fill="#1A1A2E"/>
+  
+  <!-- 身体 - 紧身运动服（深蓝） -->
+  <polygon points="74,92 62,135 72,182 120,180 130,133 116,90" fill="#14213D"/>
+  <polygon points="74,92 62,135 96,133" fill="#1B2B4D" opacity="0.7"/>
+  <polygon points="116,90 130,133 96,133" fill="#0D1830" opacity="0.7"/>
+  <polygon points="62,135 72,182 96,164" fill="#1B2B4D" opacity="0.5"/>
+  <polygon points="130,133 120,180 96,164" fill="#0D1830" opacity="0.5"/>
+  
+  <!-- 运动条纹 -->
+  <line x1="72" y1="100" x2="68" y2="135" stroke="#E63946" stroke-width="2" opacity="0.6"/>
+  <line x1="118" y1="98" x2="122" y2="133" stroke="#E63946" stroke-width="2" opacity="0.6"/>
+  
+  <!-- 左臂 - 紧缩 -->
+  <polygon points="74,97 48,132 54,142 80,110" fill="#14213D"/>
+  <circle cx="51" cy="137" r="5" fill="#FFD6A5"/>
+  <line x1="47" y1="139" x2="32" y2="225" stroke="#555" stroke-width="2.5"/>
+  <circle cx="32" cy="225" r="5" fill="none" stroke="#555" stroke-width="2"/>
+  
+  <!-- 右臂 -->
+  <polygon points="116,95 148,118 144,130 112,108" fill="#14213D"/>
+  <circle cx="146" cy="124" r="5" fill="#FFD6A5"/>
+  <line x1="150" y1="126" x2="165" y2="225" stroke="#555" stroke-width="2.5"/>
+  <circle cx="165" cy="225" r="5" fill="none" stroke="#555" stroke-width="2"/>
+  
+  <!-- 头部 -->
+  <ellipse cx="95" cy="58" rx="24" ry="26" fill="#FFD6A5"/>
+  <!-- 短发 -->
+  <path d="M72 50 Q78 28 95 26 Q112 28 118 50" fill="#2D2D2D"/>
+  
+  <!-- 运动头带 -->
+  <rect x="70" y="46" width="50" height="6" rx="3" fill="#E63946"/>
+  
+  <!-- 眼睛 - 坚毅专注 -->
+  <rect x="83" y="56" width="7" height="5" rx="1" fill="#1A1A2E"/>
+  <rect x="100" y="56" width="7" height="5" rx="1" fill="#1A1A2E"/>
+  <rect x="84" y="57" width="2" height="2" rx="0.5" fill="white"/>
+  <rect x="101" y="57" width="2" height="2" rx="0.5" fill="white"/>
+  <!-- 眉毛 - 严肃 -->
+  <line x1="82" y1="51" x2="91" y2="53" stroke="#2D2D2D" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="108" y1="53" x2="99" y2="51" stroke="#2D2D2D" stroke-width="2.5" stroke-linecap="round"/>
+  
+  <!-- 嘴 - 紧闭 -->
+  <line x1="88" y1="72" x2="102" y2="72" stroke="#C1694F" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- 汗珠 -->
+  <ellipse cx="125" cy="58" rx="3" ry="4" fill="#4CC9F0" opacity="0.5"/>
+  
+  <!-- 训练数据浮层 -->
+  <g transform="translate(140,42)" opacity="0.4">
+    <rect x="0" y="0" width="40" height="24" rx="4" fill="#14213D"/>
+    <text x="8" y="10" font-family="monospace" font-size="6" fill="#E63946">PRO</text>
+    <text x="6" y="19" font-family="monospace" font-size="7" fill="white">10000h</text>
+  </g>
+</svg>

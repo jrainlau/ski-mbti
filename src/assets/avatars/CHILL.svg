@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" fill="none">
+  <!-- CHILL 咸鱼王 - 暖棕/米色系，躺在休息椅上喝热饮 -->
+  <!-- 地面 -->
+  <rect x="15" y="228" width="170" height="3" rx="1.5" fill="#E8DDD0" opacity="0.4"/>
+  
+  <!-- 休息椅 -->
+  <polygon points="30,180 25,228 35,228 38,185" fill="#8B7355"/>
+  <polygon points="155,195 160,228 170,228 162,198" fill="#8B7355"/>
+  <rect x="28" y="178" width="140" height="22" rx="4" fill="#A0875E"/>
+  <rect x="32" y="180" width="132" height="18" rx="3" fill="#C4A87C"/>
+  
+  <!-- 左腿 - 交叉放松 -->
+  <polygon points="90,192 82,228 96,230 100,195" fill="#6B705C"/>
+  <!-- 右腿 - 翘起 -->
+  <polygon points="110,190 125,220 138,216 120,188" fill="#6B705C"/>
+  
+  <!-- 身体 - 宽松暖色调雪服（半躺姿态） -->
+  <polygon points="62,115 52,155 58,196 138,194 142,152 128,112" fill="#D4A373"/>
+  <polygon points="62,115 52,155 95,153" fill="#C49565" opacity="0.7"/>
+  <polygon points="128,112 142,152 95,153" fill="#B8875A" opacity="0.7"/>
+  <polygon points="52,155 58,196 95,178" fill="#C49565" opacity="0.5"/>
+  <polygon points="142,152 138,194 95,178" fill="#B8875A" opacity="0.5"/>
+  
+  <!-- 围巾 -->
+  <path d="M72 108 Q95 115 118 108" stroke="#E9C46A" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <rect x="108" y="108" width="8" height="30" rx="3" fill="#E9C46A"/>
+  
+  <!-- 左臂 - 放在身侧 -->
+  <polygon points="62,120 42,158 48,165 68,130" fill="#D4A373"/>
+  <circle cx="45" cy="161" r="5" fill="#FFD6A5"/>
+  
+  <!-- 右臂 - 举着热饮杯 -->
+  <polygon points="128,117 155,102 158,114 132,128" fill="#D4A373"/>
+  <circle cx="156" cy="108" r="5" fill="#FFD6A5"/>
+  <!-- 热巧克力杯 -->
+  <rect x="148" y="86" width="18" height="22" rx="3" fill="white"/>
+  <rect x="150" y="88" width="14" height="8" rx="2" fill="#6F4E37"/>
+  <!-- 杯把手 -->
+  <path d="M166 92 Q172 92 172 98 Q172 104 166 104" stroke="white" stroke-width="3" fill="none"/>
+  <!-- 热气 -->
+  <path d="M153 82 Q155 76 153 70" stroke="#D4A373" stroke-width="1.5" fill="none" opacity="0.4"/>
+  <path d="M159 83 Q161 77 159 72" stroke="#D4A373" stroke-width="1.5" fill="none" opacity="0.3"/>
+  
+  <!-- 头部 -->
+  <ellipse cx="95" cy="78" rx="25" ry="27" fill="#FFD6A5"/>
+  <!-- 头发 -->
+  <path d="M71 72 Q78 48 95 46 Q112 48 119 72" fill="#4A3B2E"/>
+  
+  <!-- 毛线帽 -->
+  <path d="M68 70 Q72 45 95 42 Q118 45 122 70" fill="#E9C46A"/>
+  <rect x="68" y="68" width="54" height="7" rx="3.5" fill="#D4A373"/>
+  <circle cx="95" cy="40" r="6" fill="#E9C46A"/>
+  
+  <!-- 眼睛 - 享受闭眼 -->
+  <path d="M82 78 Q87 74 92 78" stroke="#1A1A2E" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M98 78 Q103 74 108 78" stroke="#1A1A2E" stroke-width="2" fill="none" stroke-linecap="round"/>
+  
+  <!-- 嘴 - 满足 -->
+  <path d="M88 90 Q95 96 102 90" stroke="#C1694F" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  
+  <!-- ZZZ 装饰 -->
+  <text x="135" y="62" font-family="sans-serif" font-size="12" font-weight="bold" fill="#D4A373" opacity="0.5">z</text>
+  <text x="145" y="50" font-family="sans-serif" font-size="14" font-weight="bold" fill="#D4A373" opacity="0.4">z</text>
+  <text x="158" y="38" font-family="sans-serif" font-size="16" font-weight="bold" fill="#D4A373" opacity="0.3">z</text>
+</svg>

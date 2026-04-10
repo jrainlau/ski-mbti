@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" fill="none">
+  <!-- FLEX 氛围组 - 紫色/奢华系，时尚穿搭 -->
+  <!-- 阴影 -->
+  <ellipse cx="100" cy="242" rx="48" ry="7" fill="#E0D5E8" opacity="0.5"/>
+  
+  <!-- 精致雪板 -->
+  <rect x="58" y="233" width="84" height="5" rx="2.5" fill="#6C4F82"/>
+  <rect x="63" y="234" width="74" height="3" rx="1.5" fill="#9B72CF" opacity="0.6"/>
+  
+  <!-- 左腿 - 时尚站姿 -->
+  <polygon points="82,182 75,228 88,232 92,184" fill="#2D2D2D"/>
+  <!-- 右腿 - 交叉 -->
+  <polygon points="108,180 112,226 126,224 118,178" fill="#2D2D2D"/>
+  
+  <!-- 身体 - 紫色/薰衣草时尚雪服 -->
+  <polygon points="72,95 60,140 70,186 122,184 132,138 118,92" fill="#9B72CF"/>
+  <polygon points="72,95 60,140 96,138" fill="#8E62C2" opacity="0.7"/>
+  <polygon points="118,92 132,138 96,138" fill="#7D52B5" opacity="0.7"/>
+  <polygon points="60,140 70,186 96,168" fill="#8E62C2" opacity="0.5"/>
+  <polygon points="132,138 122,184 96,168" fill="#7D52B5" opacity="0.5"/>
+  
+  <!-- 腰带 -->
+  <rect x="66" y="138" width="62" height="5" rx="2.5" fill="#E9C46A"/>
+  <rect x="92" y="136" width="10" height="9" rx="2" fill="#E9C46A"/>
+  <rect x="94" y="138" width="6" height="5" rx="1" fill="#D4AF37"/>
+  
+  <!-- 左臂 - 叉腰 -->
+  <polygon points="72,100 52,135 58,142 78,112" fill="#9B72CF"/>
+  <circle cx="55" cy="138" r="4" fill="#FFD6A5"/>
+  
+  <!-- 右臂 - 撩发 -->
+  <polygon points="118,97 138,82 142,92 122,108" fill="#9B72CF"/>
+  <circle cx="140" cy="87" r="4" fill="#FFD6A5"/>
+  
+  <!-- 头部 -->
+  <ellipse cx="95" cy="58" rx="25" ry="27" fill="#FFD6A5"/>
+  <!-- 时尚长发 -->
+  <path d="M71 50 Q78 25 95 22 Q112 25 119 50" fill="#1A1A2E"/>
+  <path d="M68 54 Q65 70 68 88 Q70 95 75 95" stroke="#1A1A2E" stroke-width="9" fill="none" stroke-linecap="round"/>
+  <path d="M122 54 Q125 70 122 88 Q120 95 115 95" stroke="#1A1A2E" stroke-width="9" fill="none" stroke-linecap="round"/>
+  
+  <!-- 时尚贝雷帽 -->
+  <ellipse cx="98" cy="34" rx="22" ry="12" fill="#6C4F82"/>
+  <ellipse cx="98" cy="36" rx="20" ry="10" fill="#7D52B5"/>
+  
+  <!-- 时尚墨镜 -->
+  <rect x="76" y="52" width="17" height="14" rx="4" fill="#1A1A2E"/>
+  <rect x="97" y="52" width="17" height="14" rx="4" fill="#1A1A2E"/>
+  <line x1="93" y1="58" x2="97" y2="58" stroke="#1A1A2E" stroke-width="2"/>
+  <line x1="76" y1="58" x2="70" y2="55" stroke="#1A1A2E" stroke-width="2"/>
+  <line x1="114" y1="58" x2="120" y2="55" stroke="#1A1A2E" stroke-width="2"/>
+  <!-- 墨镜反光 -->
+  <rect x="79" y="54" width="5" height="4" rx="2" fill="white" opacity="0.15"/>
+  <rect x="100" y="54" width="5" height="4" rx="2" fill="white" opacity="0.15"/>
+  
+  <!-- 嘴 - 自信微笑 -->
+  <path d="M87 74 Q95 80 103 74" stroke="#C1694F" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  
+  <!-- 腮红 -->
+  <circle cx="79" cy="68" r="4" fill="#E8A0BF" opacity="0.3"/>
+  <circle cx="111" cy="68" r="4" fill="#E8A0BF" opacity="0.3"/>
+  
+  <!-- 闪光效果 -->
+  <g transform="translate(145,50)">
+    <line x1="0" y1="-5" x2="0" y2="5" stroke="#E9C46A" stroke-width="1.5" opacity="0.5"/>
+    <line x1="-5" y1="0" x2="5" y2="0" stroke="#E9C46A" stroke-width="1.5" opacity="0.5"/>
+  </g>
+  <g transform="translate(42,42)">
+    <line x1="0" y1="-4" x2="0" y2="4" stroke="#E9C46A" stroke-width="1" opacity="0.4"/>
+    <line x1="-4" y1="0" x2="4" y2="0" stroke="#E9C46A" stroke-width="1" opacity="0.4"/>
+  </g>
+  <g transform="translate(160,130)">
+    <line x1="0" y1="-3" x2="0" y2="3" stroke="#E9C46A" stroke-width="1" opacity="0.3"/>
+    <line x1="-3" y1="0" x2="3" y2="0" stroke="#E9C46A" stroke-width="1" opacity="0.3"/>
+  </g>
+</svg>
