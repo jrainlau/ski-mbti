@@ -8,12 +8,14 @@ import type { MatchResult } from '@/types'
 import PersonalityCard from '@/components/PersonalityCard.vue'
 import DimensionList from '@/components/DimensionList.vue'
 import CollapsibleSection from '@/components/CollapsibleSection.vue'
+import { generatePosterCanvas } from '@/utils/poster'
 
 const router = useRouter()
 const route = useRoute()
 const store = useQuizStore()
 
 const showContent = ref(false)
+const isGenerating = ref(false)
 
 // 支持开发者模式：通过 ?code=XXX 直达某个人格
 const devCode = route.query.code as string | undefined
@@ -22,7 +24,6 @@ const result = computed<MatchResult | null>(() => {
   if (devCode) {
     const personality = personalities.find(p => p.code === devCode)
     if (!personality) return null
-    // 生成模拟的维度得分（使用人格模板值作为归一化分，clamp 负值到 0）
     const dimensionScores = dimensions.map(dim => {
       const raw = personality.template[dim.id] ?? 5
       const normalized = Math.max(0, Math.min(10, raw))
@@ -62,6 +63,24 @@ function restartQuiz() {
 
 function goHome() {
   router.push('/')
+}
+
+async function generatePoster() {
+  if (!result.value || isGenerating.value) return
+  isGenerating.value = true
+
+  try {
+    const canvas = await generatePosterCanvas(result.value)
+    const link = document.createElement('a')
+    link.download = `ski-mbti-${result.value.personality.code || 'result'}.png`
+    link.href = canvas.toDataURL('image/png')
+    link.click()
+  } catch (e) {
+    console.error('生成海报失败:', e)
+    alert('海报生成失败，请重试')
+  } finally {
+    isGenerating.value = false
+  }
 }
 </script>
 
@@ -114,6 +133,9 @@ function goHome() {
 
       <!-- Action buttons -->
       <div class="anim-item result-actions" style="--delay: 5">
+        <button class="btn-poster" @click="generatePoster" :disabled="isGenerating">
+          {{ isGenerating ? '⏳ 生成中...' : '🖼️ 生成海报' }}
+        </button>
         <button class="btn-outline" @click="restartQuiz">🔄 重新测试</button>
         <button class="btn-solid" @click="goHome">🏠 回到首页</button>
       </div>
@@ -198,6 +220,19 @@ function goHome() {
   padding-top: var(--spacing-md);
 }
 
+@media (max-width: 640px) {
+  .result-actions {
+    flex-direction: column;
+  }
+  .result-actions .btn-poster,
+  .result-actions .btn-outline,
+  .result-actions .btn-solid {
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+  }
+}
+
 .btn-outline {
   padding: 12px 28px;
   font-size: var(--font-size-base);
@@ -227,5 +262,27 @@ function goHome() {
 .btn-solid:hover {
   transform: translateY(-1px);
   box-shadow: 0 6px 20px rgba(74, 144, 217, 0.4);
+}
+
+/* Poster button */
+.btn-poster {
+  padding: 12px 28px;
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #f59e0b, #f97316);
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-poster:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+}
+
+.btn-poster:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 </style>

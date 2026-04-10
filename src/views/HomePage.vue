@@ -43,7 +43,7 @@ function goToResult(code: string) {
       <div class="home-content">
         <div class="hero-icon">🏂⛷️</div>
         <h1 class="hero-title">滑雪佬 MBTI</h1>
-        <p class="hero-subtitle">MBTI 已经过时了，滑雪佬有自己的人格测试</p>
+        <p class="hero-subtitle">滑雪佬有自己的人格测试</p>
         <p class="hero-desc">30 道趣味题目，测出你是哪种滑雪佬</p>
 
         <div class="hero-actions">
