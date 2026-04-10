@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+
+  body {
+    font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: #0a0a0a;
+  }
+
+  .card {
+    width: 1080px;
+    height: 1920px;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto 40px;
+    background: #0c1929;
+    color: #e8f0f8;
+  }
+
+  /* 通用背景纹理 */
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(ellipse at 20% 0%, rgba(74, 144, 217, 0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 100%, rgba(107, 176, 240, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .card-inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 80px 72px;
+  }
+
+  /* ===== 卡片 1: 封面 ===== */
+  .card-cover .tag {
+    display: inline-block;
+    background: rgba(74, 144, 217, 0.2);
+    border: 1px solid rgba(74, 144, 217, 0.4);
+    border-radius: 20px;
+    padding: 8px 24px;
+    font-size: 26px;
+    color: #6bb0f0;
+    letter-spacing: 2px;
+    margin-bottom: 48px;
+  }
+  .card-cover h1 {
+    font-size: 72px;
+    font-weight: 900;
+    line-height: 1.25;
+    color: #fff;
+    margin-bottom: 32px;
+    letter-spacing: -1px;
+  }
+  .card-cover h1 span {
+    color: #6bb0f0;
+  }
+  .card-cover .subtitle {
+    font-size: 30px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.7;
+    margin-bottom: 60px;
+  }
+  .card-cover .screenshot-wrap {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+  }
+  .card-cover .screenshot-wrap img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05);
+  }
+  .card-cover .page-num {
+    text-align: center;
+    font-size: 22px;
+    color: rgba(255,255,255,0.25);
+    margin-top: 40px;
+    letter-spacing: 4px;
+  }
+
+  /* ===== 卡片 2-5: 内容页 ===== */
+  .card-content .section-num {
+    font-size: 120px;
+    font-weight: 900;
+    color: rgba(74, 144, 217, 0.12);
+    line-height: 1;
+    margin-bottom: -20px;
+  }
+  .card-content h2 {
+    font-size: 52px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 40px;
+    line-height: 1.3;
+  }
+  .card-content .body-text {
+    font-size: 30px;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.72);
+    flex: 1;
+  }
+  .card-content .body-text p {
+    margin-bottom: 28px;
+  }
+  .card-content .body-text .highlight {
+    color: #6bb0f0;
+  }
+  .card-content .body-text .quote-block {
+    border-left: 4px solid rgba(74, 144, 217, 0.5);
+    padding-left: 28px;
+    margin: 32px 0;
+    color: rgba(255,255,255,0.55);
+    font-style: italic;
+  }
+  .card-content .img-section {
+    margin-top: auto;
+  }
+  .card-content .img-section img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.05);
+  }
+  .card-content .img-section .caption {
+    font-size: 22px;
+    color: rgba(255,255,255,0.35);
+    text-align: center;
+    margin-top: 16px;
+  }
+  .card-content .page-num {
+    text-align: center;
+    font-size: 22px;
+    color: rgba(255,255,255,0.25);
+    margin-top: 36px;
+    letter-spacing: 4px;
+  }
+
+  /* ===== 卡片 6: 结尾 ===== */
+  .card-ending .ending-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .card-ending h2 {
+    font-size: 52px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 48px;
+    line-height: 1.3;
+  }
+  .card-ending .body-text {
+    font-size: 30px;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.72);
+    margin-bottom: 56px;
+  }
+  .card-ending .body-text p {
+    margin-bottom: 24px;
+  }
+  .card-ending .cta-box {
+    background: rgba(74, 144, 217, 0.1);
+    border: 1px solid rgba(74, 144, 217, 0.3);
+    border-radius: 20px;
+    padding: 40px 44px;
+    text-align: center;
+  }
+  .card-ending .cta-box .url {
+    font-size: 28px;
+    color: #6bb0f0;
+    word-break: break-all;
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+  .card-ending .cta-box .cta-hint {
+    font-size: 24px;
+    color: rgba(255,255,255,0.4);
+  }
+  .card-ending .page-num {
+    text-align: center;
+    font-size: 22px;
+    color: rgba(255,255,255,0.25);
+    margin-top: 40px;
+    letter-spacing: 4px;
+  }
+
+  /* 双图布局 */
+  .dual-img {
+    display: flex;
+    gap: 24px;
+    margin-top: auto;
+  }
+  .dual-img .img-col {
+    flex: 1;
+  }
+  .dual-img .img-col img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.05);
+  }
+  .dual-img .img-col .caption {
+    font-size: 20px;
+    color: rgba(255,255,255,0.35);
+    text-align: center;
+    margin-top: 12px;
+  }
+
+  /* 移动端+PC端混合布局 */
+  .mixed-img {
+    display: flex;
+    gap: 24px;
+    align-items: flex-end;
+    margin-top: auto;
+  }
+  .mixed-img .pc-col {
+    flex: 2;
+  }
+  .mixed-img .mobile-col {
+    flex: 0.7;
+  }
+  .mixed-img img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.05);
+  }
+  .mixed-img .caption {
+    font-size: 20px;
+    color: rgba(255,255,255,0.35);
+    text-align: center;
+    margin-top: 12px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== 卡片 1: 封面 ========== -->
+<div class="card card-cover" id="card-1">
+  <div class="card-inner">
+    <div class="tag">VIBE CODING 实录</div>
+    <h1>和 <span>AI</span> 一起做了一个<br>滑雪人格测试</h1>
+    <p class="subtitle">
+      刷到 SBTI 全网刷屏，作为滑雪爱好者 + 前端工程师，<br>
+      我决定用 AI 给滑雪圈也搞一个。<br>
+      从第一句对话到上线，不到一天。
+    </p>
+    <div class="screenshot-wrap">
+      <img src="screenshot-home.png" alt="首页">
+    </div>
+    <div class="page-num">1 / 6</div>
+  </div>
+</div>
+
+<!-- ========== 卡片 2: 起源 + 需求 ========== -->
+<div class="card card-content" id="card-2">
+  <div class="card-inner">
+    <div class="section-num">01</div>
+    <h2>朋友圈刷屏那天</h2>
+    <div class="body-text">
+      <p>今天刷手机，满屏都是"你的 SBTI 是什么"。这个玩梗版人格测试一夜之间火了，到处有人晒结果：伪人 FAKE、尤物 SLAY、愤世者 SHIT……</p>
+      <p>我是个滑雪爱好者，脑子里冒出一个想法：<span class="highlight">雪场上那些人，送命家、刻弧怪、装备帝、咸鱼王，哪个雪友没在缆车上见过？</span>这些角色比 INFJ、ENTP 生动多了，滑雪圈也能搞一个。</p>
+      <p>我同时也是干了好些年的前端，所以从想法到"我能做出来"没什么犹豫。不过这次我打算全程让 AI 写代码，我只管说需求和把关效果。</p>
+      <p>打开对话框，一句"帮我做一个滑雪人格测试网站"，就开始了。</p>
+    </div>
+    <div class="img-section">
+      <img src="screenshot-quiz.png" alt="答题页">
+      <div class="caption">30 道题铺在一个长页面里，选完直接提交</div>
+    </div>
+    <div class="page-num">2 / 6</div>
+  </div>
+</div>
+
+<!-- ========== 卡片 3: Vibe Coding 循环 ========== -->
+<div class="card card-content" id="card-3">
+  <div class="card-inner">
+    <div class="section-num">02</div>
+    <h2>说效果不说实现</h2>
+    <div class="body-text">
+      <p>需求谈完，AI 开始构建。我故意只说效果："首页要飘雪花""按钮冰蓝色调""答题页一次显示全部题目""结果要有仪式感"。</p>
+      <p>写好跑起来，我在浏览器里看效果，哪里不对说哪里。说一个改动，看到结果，可能就几十秒。</p>
+      <p>但快不等于不过脑子。有些地方需要<span class="highlight">专业判断兜底</span>。比如 AI 默认每次进结果页都重新算，刷新一下就没了。我直接让它把结果存到 localStorage，用户关了页面再打开，结果还在，不用重新做 30 道题。</p>
+      <div class="quote-block">这种体验层面的细节，AI 不会主动想到，得有人点一下。</div>
+      <p>人格数量定了 16 种，内容全是自己来的。题目 30 道，加 10 道隐藏题——选了特定选项才会出现，增加惊喜感。结果页有雷达图，还有让人觉得"这说的是我"的评语。</p>
+    </div>
+    <div class="page-num">3 / 6</div>
+  </div>
+</div>
+
+<!-- ========== 卡片 4: 算法迭代 ========== -->
+<div class="card card-content" id="card-4">
+  <div class="card-inner">
+    <div class="section-num">03</div>
+    <h2>算法来回折腾了好几轮</h2>
+    <div class="body-text">
+      <p>做到一半发现问题：有些人格测不出来。"咸鱼王 CHILL"和"退坑人 YOLO"几乎永远混淆，某些选项怎么选都没区分力。</p>
+      <p>我告诉 AI，它做了系统分析：维度覆盖不均匀，保守类选项缺权重，几种佛系人格的特征向量距离太近。</p>
+      <p>然后重新设计评分方案：<span class="highlight">余弦相似度换成加权欧氏距离</span>，引入负分机制，给每种人格定义核心维度并权重翻倍，把容易混淆的人格模板距离手动拉开。</p>
+      <p>改了两三轮。我负责描述现象："CHILL 人格出不来"，AI 负责分析和改代码。我不需要知道欧氏距离怎么算，但我知道哪里不对。</p>
+    </div>
+    <div class="dual-img">
+      <div class="img-col">
+        <img src="screenshot-result-send.png" alt="结果页">
+        <div class="caption">送命家 SEND 的结果页</div>
+      </div>
+      <div class="img-col">
+        <img src="screenshot-result-send-detail.png" alt="结果详情">
+        <div class="caption">雷达图 + 维度评语</div>
+      </div>
+    </div>
+    <div class="page-num">4 / 6</div>
+  </div>
+</div>
+
+<!-- ========== 卡片 5: 细节打磨 + 部署 ========== -->
+<div class="card card-content" id="card-5">
+  <div class="card-inner">
+    <div class="section-num">04</div>
+    <h2>细节一点点加上去的</h2>
+    <div class="body-text">
+      <p>基本功能跑通后开始加东西。16 个低多边形风格头像，AI 用 SVG 手绘的，各自配色不同。首页飘雪花，CSS 动画 20 个粒子随机分布。主题色从绿色换成冰蓝色系。</p>
+      <p>测完要能分享，加了 Canvas 生成海报、一键下载 PNG。还有一个开发者模式，在 localStorage 写个 key 就出现隐藏面板，直接跳到任意人格的结果页，省得每次调试都答 30 道题。</p>
+      <p>每加一个功能的流程都差不多：我说要什么，AI 实现，我看效果，不对再说。</p>
+      <p>做差不多了，配了 GitHub Actions，推代码自动构建部署到 GitHub Pages。</p>
+    </div>
+    <div class="mixed-img">
+      <div class="pc-col">
+        <img src="screenshot-home.png" alt="PC首页">
+        <div class="caption">PC 端首页</div>
+      </div>
+      <div class="mobile-col">
+        <img src="screenshot-mobile-home.png" alt="移动端首页">
+        <div class="caption">移动端</div>
+      </div>
+    </div>
+    <div class="page-num">5 / 6</div>
+  </div>
+</div>
+
+<!-- ========== 卡片 6: 总结 + CTA ========== -->
+<div class="card card-ending" id="card-6">
+  <div class="card-inner">
+    <div class="ending-content">
+      <h2>方向盘一直在我手里</h2>
+      <div class="body-text">
+        <p>回头看，我做了三件事：</p>
+        <p>提供关于滑雪圈的具体知识——什么样的人属于哪种人格，评语怎么写才够准。</p>
+        <p>不断试用然后指出哪里不对。</p>
+        <p>在体验和工程细节上用自己的经验兜底——localStorage 持久化、开发者模式、移动端适配优先级。</p>
+        <p style="margin-top: 16px; color: rgba(255,255,255,0.55);">代码是 AI 写的，但正因为自己懂前端，才知道哪些地方它会漏、哪些地方该插手、哪些地方让它自由发挥就行。</p>
+      </div>
+      <div class="cta-box">
+        <div class="url">jrainlau.github.io/ski-mbti</div>
+        <div class="cta-hint">如果你也滑，去测一下<br>测完截图发朋友圈。不发等于没去滑雪。</div>
+      </div>
+    </div>
+    <div class="page-num">6 / 6</div>
+  </div>
+</div>
+
+</body>
+</html>
