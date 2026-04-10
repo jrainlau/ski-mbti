@@ -124,8 +124,8 @@ export async function generatePosterCanvas(result: MatchResult): Promise<HTMLCan
   const dimRows = Math.ceil(dimensionScores.length / 2)
   const dimSectionH = 32 + 36 + 24 + dimRows * 56 + 32
 
-  // Footer 高度
-  const footerH = 160 + 32
+  // Footer 高度（简化：只有一行文字）
+  const footerH = 60
 
   const totalH = PAD + headerH + 40 + descSectionH + 40 + dimSectionH + 40 + footerH + PAD
 
@@ -164,8 +164,26 @@ export async function generatePosterCanvas(result: MatchResult): Promise<HTMLCan
   if (avatarImg) {
     const aw = 200
     const ah = 240
-    ctx.drawImage(avatarImg, (W - aw) / 2, curY, aw, ah)
+    const avatarX = (W - aw) / 2
+    ctx.drawImage(avatarImg, avatarX, curY, aw, ah)
     curY += ah + 16
+  }
+
+  // QR code at bottom-right corner of header card
+  if (qrImg) {
+    const qrSize = 80
+    const qrX = PAD + CONTENT_W - qrSize - 20
+    const qrY2 = headerStartY + headerH - qrSize - 20
+    // 白色背景 + 圆角
+    roundRect(ctx, qrX - 4, qrY2 - 4, qrSize + 8, qrSize + 8, 12)
+    ctx.fillStyle = '#FFFFFF'
+    ctx.fill()
+    // 绘制二维码
+    ctx.save()
+    roundRect(ctx, qrX, qrY2, qrSize, qrSize, 10)
+    ctx.clip()
+    ctx.drawImage(qrImg, qrX, qrY2, qrSize, qrSize)
+    ctx.restore()
   }
 
   // Code
@@ -282,35 +300,11 @@ export async function generatePosterCanvas(result: MatchResult): Promise<HTMLCan
 
   curY = dimStartY + dimSectionH + 40
 
-  // ===== Footer 区域 =====
-  roundRect(ctx, PAD, curY, CONTENT_W, 160, RADIUS)
-  ctx.fillStyle = '#FFFFFF'
-  ctx.fill()
-  ctx.strokeStyle = '#e5e7eb'
-  ctx.lineWidth = 2
-  ctx.stroke()
-
-  // QR Code
-  if (qrImg) {
-    const qrSize = 120
-    const qrX = PAD + 32
-    const qrY = curY + 20
-    roundRect(ctx, qrX, qrY, qrSize, qrSize, 12)
-    ctx.save()
-    ctx.clip()
-    ctx.drawImage(qrImg, qrX, qrY, qrSize, qrSize)
-    ctx.restore()
-  }
-
-  // Footer text
-  ctx.fillStyle = '#1a1a1a'
-  ctx.font = '600 28px "PingFang SC", sans-serif'
-  ctx.textAlign = 'left'
-  ctx.fillText('扫码测测你的滑雪佬人格', PAD + 32 + 120 + 24, curY + 65)
-
+  // ===== Footer 文字 =====
   ctx.fillStyle = '#999'
-  ctx.font = '24px "PingFang SC", sans-serif'
-  ctx.fillText('ski-mbti', PAD + 32 + 120 + 24, curY + 100)
+  ctx.font = '22px "PingFang SC", sans-serif'
+  ctx.textAlign = 'center'
+  ctx.fillText('扫描海报中的二维码，测测你的滑雪佬人格 🎿', W / 2, curY + 30)
 
   return canvas
 }

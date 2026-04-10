@@ -11,6 +11,7 @@ import QuestionCard from '@/components/QuestionCard.vue'
 const router = useRouter()
 const store = useQuizStore()
 const showToast = ref(false)
+const isSubmitting = ref(false)
 
 // 构建隐藏题触发索引：parentQuestionId -> HiddenQuestion[]
 const hiddenByParent = computed(() => {
@@ -64,22 +65,36 @@ function handleSelect(questionId: number, optionLabel: string) {
 }
 
 function handleSubmit() {
-  if (!allComplete.value) {
-    showToast.value = true
-    setTimeout(() => { showToast.value = false }, 2500)
-    // Scroll to first unanswered visible question
-    const firstUnanswered = visibleQuestions.value.find(q => !store.getAnswer(q.id))
-    if (firstUnanswered) {
-      const el = document.getElementById('q-' + firstUnanswered.id)
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'center' })
-        el.classList.add('shake')
-        setTimeout(() => el.classList.remove('shake'), 600)
+  if (!allComplete.value || isSubmitting.value) {
+    if (!allComplete.value) {
+      showToast.value = true
+      setTimeout(() => { showToast.value = false }, 2500)
+      const firstUnanswered = visibleQuestions.value.find(q => !store.getAnswer(q.id))
+      if (firstUnanswered) {
+        const el = document.getElementById('q-' + firstUnanswered.id)
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' })
+          el.classList.add('shake')
+          setTimeout(() => el.classList.remove('shake'), 600)
+        }
       }
     }
     return
   }
-  router.push('/result')
+
+  isSubmitting.value = true
+
+  // 用 nextTick + setTimeout 确保 store.result 计算完毕后再跳转
+  setTimeout(() => {
+    if (store.result) {
+      router.push('/result')
+    } else {
+      // result 为空说明有未答题（隐藏题逻辑边界情况）
+      isSubmitting.value = false
+      showToast.value = true
+      setTimeout(() => { showToast.value = false }, 2500)
+    }
+  }, 300)
 }
 
 function goHome() {
@@ -121,10 +136,17 @@ function goHome() {
           <button class="btn-ghost" @click="goHome">返回首页</button>
           <button
             class="btn-submit"
-            :class="{ 'btn-disabled': !allComplete }"
+            :class="{ 'btn-disabled': !allComplete || isSubmitting }"
+            :disabled="isSubmitting"
             @click="handleSubmit"
           >
-            提交并查看结果
+            <template v-if="isSubmitting">
+              <span class="btn-spinner"></span>
+              计算中...
+            </template>
+            <template v-else>
+              提交并查看结果
+            </template>
           </button>
         </div>
       </div>
@@ -218,6 +240,23 @@ function goHome() {
   border-radius: var(--radius-full);
   box-shadow: 0 4px 12px rgba(74, 144, 217, 0.3);
   transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
 
 .btn-submit:hover:not(.btn-disabled) {
