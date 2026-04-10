@@ -81,24 +81,15 @@ export function normalizeScore(raw: number, max: number): number {
 }
 
 /**
- * 计算与人格模板的余弦相似度
+ * 计算与人格模板的归一化欧氏距离（越小越匹配）
  */
-function cosineSimilarity(userVector: number[], templateVector: number[]): number {
-  let dotProduct = 0
-  let userMagnitude = 0
-  let templateMagnitude = 0
-
+function euclideanDistance(userVector: number[], templateVector: number[]): number {
+  let sumSquares = 0
   for (let i = 0; i < userVector.length; i++) {
-    dotProduct += userVector[i] * templateVector[i]
-    userMagnitude += userVector[i] * userVector[i]
-    templateMagnitude += templateVector[i] * templateVector[i]
+    const diff = userVector[i] - templateVector[i]
+    sumSquares += diff * diff
   }
-
-  userMagnitude = Math.sqrt(userMagnitude)
-  templateMagnitude = Math.sqrt(templateMagnitude)
-
-  if (userMagnitude === 0 || templateMagnitude === 0) return 0
-  return dotProduct / (userMagnitude * templateMagnitude)
+  return Math.sqrt(sumSquares)
 }
 
 /**
@@ -118,25 +109,28 @@ export function matchPersonality(answers: UserAnswer[]): MatchResult {
   const dimIds = dimensions.map(d => d.id)
   const userVector = dimIds.map(id => normalizedScores[id])
 
-  // 计算与每个人格的匹配度
+  // 计算与每个人格的匹配度（用归一化欧氏距离，越小越匹配）
   let bestMatch: Personality = personalities[0]
-  let bestSimilarity = -1
+  let bestDistance = Infinity
 
-  const allSimilarities: { personality: Personality; similarity: number }[] = []
+  const allDistances: { personality: Personality; distance: number }[] = []
+
+  const maxPossibleDistance = Math.sqrt(dimensions.length * 100) // 最大可能距离（每个维度差10）
 
   for (const personality of personalities) {
     const templateVector = dimIds.map(id => personality.template[id] ?? 5)
-    const similarity = cosineSimilarity(userVector, templateVector)
-    allSimilarities.push({ personality, similarity })
+    const distance = euclideanDistance(userVector, templateVector)
+    allDistances.push({ personality, distance })
 
-    if (similarity > bestSimilarity) {
-      bestSimilarity = similarity
+    if (distance < bestDistance) {
+      bestDistance = distance
       bestMatch = personality
     }
   }
 
-  // 计算匹配度百分比（将余弦相似度映射到 60%-100% 区间，更好看）
-  const matchPercent = Math.round((60 + bestSimilarity * 40) * 10) / 10
+  // 计算匹配度百分比：距离越小匹配度越高，映射到 60%-100% 区间
+  const similarity = 1 - (bestDistance / maxPossibleDistance)
+  const matchPercent = Math.round((50 + similarity * 50) * 10) / 10
 
   // 构建维度得分列表
   const dimensionScores: DimensionScore[] = dimensions.map(dim => {

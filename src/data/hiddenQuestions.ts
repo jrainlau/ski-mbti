@@ -126,8 +126,8 @@ export const hiddenQuestions: Question[] = [
     hidden: { questionId: 24, optionLabel: 'A' },
     options: [
       { label: 'A', text: '自己的护具要过关——每次出发前逐项检查', weights: [{ dimensionId: 'E1', score: 1 }, { dimensionId: 'E2', score: 2 }] },
-      { label: 'B', text: '别人的行为——最怕有人在雪道中间停着不动', weights: [{ dimensionId: 'S1', score: 1 }, { dimensionId: 'A1', score: 0 }] },
-      { label: 'C', text: '雪场整体设施——防护网、标识、巡逻队缺一不可', weights: [{ dimensionId: 'A1', score: 0 }, { dimensionId: 'V2', score: 1 }, { dimensionId: 'E2', score: 1 }] }
+      { label: 'B', text: '别人的行为——最怕有人在雪道中间停着不动', weights: [{ dimensionId: 'S1', score: 1 }, { dimensionId: 'V1', score: 1 }] },
+      { label: 'C', text: '雪场整体设施——防护网、标识、巡逻队缺一不可', weights: [{ dimensionId: 'A2', score: 1 }, { dimensionId: 'E2', score: 1 }] }
     ]
   }
 ]
